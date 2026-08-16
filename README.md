@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SecondSelf: A Self-Organizing AI Brain
 
 This project addresses a common failure point in knowledge management: information goes in, but it never comes back out. Notes, bookmarks, and ideas get lost in a digital abyss, failing to compound into usable knowledge.
@@ -25,3 +26,6 @@ The project is built in four distinct stages:
 *   **The Oracle**: Implementing the Q&A functionality and deploying the final application.
 
 This repository contains the code and data for building your own SecondSelf.
+=======
+# AI_Second_Brain_Week_2
+>>>>>>> df8d636a40da23c44904acc3aae51d67a0dfeeed

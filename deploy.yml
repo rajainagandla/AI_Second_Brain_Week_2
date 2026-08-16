@@ -1,0 +1,34 @@
+name: Deploy to Streamlit Community Cloud
+
+on:
+  push:
+    branches:
+      - main # Or 'master', depending on your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Deploy to Streamlit Cloud
+        uses: streamlit/streamlit-cloud-deploy@v1
+        with:
+          # The path to your Streamlit app file relative to the repository root.
+          # In your case, it's d:/Loop/Week_2/app.py, so it will be app.py in the repo root.
+          streamlit_app_path: app.py
+          # The GitHub repository name (e.g., 'AI_Second_Brain')
+          github_repo: ${{ github.repository }}
+          # The branch to deploy from (e.g., 'main')
+          github_branch: main
+          # The GitHub username or organization name (e.g., 'rajainagandla')
+          github_owner: ${{ github.repository_owner }}
+          # Your Streamlit Cloud deployment token, stored as a GitHub Secret
+          # You MUST add this as a secret in your GitHub repository settings.
+          # Go to your repo -> Settings -> Secrets and variables -> Actions -> New repository secret
+          # Name it STREAMLIT_CLOUD_TOKEN and paste your token value.
+          api_key: ${{ secrets.STREAMLIT_CLOUD_TOKEN }}
+          # Pass environment variables to the Streamlit app
+          # The format is a comma-separated string of KEY=VALUE pairs
+          environment_variables: GEMINI_API_KEY=${{ secrets.GEMINI_API_KEY }}
